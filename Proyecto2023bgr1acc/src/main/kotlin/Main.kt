@@ -58,6 +58,7 @@ fun main() {
     val sumaDos = Suma(null, 1)
     val sumaTres = Suma(1, null)
     val sumaCuatro = Suma(null, null)
+
     sumaUno.sumar()
     sumaDos.sumar()
     sumaTres.sumar()
@@ -132,7 +133,6 @@ fun main() {
             return@reduce (acumulado + valorActual)
         }
     println(respuestaReduce)
-    
 }
 
 //Clases
