@@ -15,7 +15,7 @@ class BListView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blist_view)
 
-        val listView = findViewById<ListView>(R.id.lv_list_view)
+        val listView = findViewById<ListView>(R.id.liv_list_view)
         val adaptador = ArrayAdapter(
             this, //Contexto
             //como se va a ver (XML)
