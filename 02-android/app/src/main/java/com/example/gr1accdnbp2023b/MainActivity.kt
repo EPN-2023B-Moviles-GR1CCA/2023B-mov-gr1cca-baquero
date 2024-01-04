@@ -15,6 +15,8 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
         val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
         botonCicloVida
             .setOnClickListener {
@@ -26,6 +28,25 @@ class MainActivity : AppCompatActivity() {
         botonListView.setOnClickListener {
             irActividad(BListView:: class.java)
         }
+        val botonIntentImplicito = findViewById<Button>(
+            R.id.btn_ir_intent_implicito)
+        botonIntentImplicito
+            .setOnClickListener {
+                val intentConRespuesta = Intent(
+                    Intent.ACTION_PICK,
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+                )
+                callbackIntentImplicitoTelefono.launch(intentConRespuesta)
+            }
+
+        val botonIntentExplicito = findViewById<Button>(
+            R.id.btn_ir_intent_explicito)
+        botonIntentExplicito
+            .setOnClickListener {
+                abrirActividadConParametros(
+                    CIntentExplicitoParametros::class.java
+                )
+            }
     }
 
     val callbackContenidoIntentExplicito =
@@ -77,6 +98,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+    fun abrirActividadConParametros(
+        clase: Class<*>
+    ){
+        val intentExplicito = Intent(this, clase)
+        // Enviar parametros (solamente variables primitivas)
+        intentExplicito.putExtra("nombre", "Adrián")
+        intentExplicito.putExtra("apellido", "Eguez")
+        intentExplicito.putExtra("edad", 34)
+        callbackContenidoIntentExplicito.launch(intentExplicito)
+    }
 
     fun irActividad(
         clase: Class<*>

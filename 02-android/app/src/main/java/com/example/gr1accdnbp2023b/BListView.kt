@@ -49,6 +49,7 @@ class BListView : AppCompatActivity() {
         super.onCreateContextMenu(menu, v, menuInfo)
         // Llenamos las opciones del menu
         val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
 
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val posicion = info.position
