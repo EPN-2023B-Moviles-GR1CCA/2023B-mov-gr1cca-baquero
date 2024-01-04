@@ -4,7 +4,7 @@
     <color name="ejemplo_color">#FFFFFF</color>
 
     <string-array name="string_array_opciones_dialogo">
-       <item>Lunes</item>
+        <item>Lunes</item>
         <item>Martes</item>
         <item>Miercoles</item>
     </string-array>
