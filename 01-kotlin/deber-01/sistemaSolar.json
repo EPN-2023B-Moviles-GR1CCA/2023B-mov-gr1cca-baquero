@@ -1,0 +1,16 @@
+{
+  "nombre": "Sistema Solar",
+  "planetas": [
+    {
+      "nombre": "Mercurio",
+      "posicion": 1,
+      "fechaDescubrimiento": "Jan 1, 1693, 12:00:00 AM",
+      "diametro": 4879.4,
+      "distanciaDelSol": 5.8E7,
+      "duracionDia": 1416.0,
+      "perteneceASistemaSolar": true,
+      "tieneVida": false,
+      "numeroSatelites": 0
+    }
+  ]
+}
