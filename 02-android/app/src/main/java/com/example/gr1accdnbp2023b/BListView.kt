@@ -15,6 +15,24 @@ import com.google.android.material.snackbar.Snackbar
 
 class BListView : AppCompatActivity() {
     val arreglo = BBaseDatosMemoria.arregloBEntrenador
+
+    var posicionItemSeleccionado = 0
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        // Llenamos las opciones del menu
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+
+        val info = menuInfo as AdapterView.AdapterContextMenuInfo
+        val posicion = info.position
+        posicionItemSeleccionado = posicion
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blist_view)
@@ -39,22 +57,7 @@ class BListView : AppCompatActivity() {
         registerForContextMenu(listView)
     }
 
-    var posicionItemSeleccionado = 0
 
-    override fun onCreateContextMenu(
-        menu: ContextMenu?,
-        v: View?,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        // Llenamos las opciones del menu
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu, menu)
-
-        val info = menuInfo as AdapterView.AdapterContextMenuInfo
-        val posicion = info.position
-        posicionItemSeleccionado = posicion
-    }
 
     fun mostrarSnackbar(texto: String) {
         Snackbar

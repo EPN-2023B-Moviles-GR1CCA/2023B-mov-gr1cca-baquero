@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_crud_planeta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrudPlaneta">
+
+    <EditText
+        android:id="@+id/input_nombre_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/input_descripcion_planeta"
+        app:layout_constraintEnd_toEndOf="@+id/input_descripcion_planeta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_descripcion_planeta" />
+
+    <EditText
+        android:id="@+id/input_id_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/input_nombre_planeta"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre_planeta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_nombre_planeta" />
+
+    <EditText
+        android:id="@+id/input_posicion_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Posición"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/input_vida_planeta"
+        app:layout_constraintEnd_toEndOf="@+id/input_vida_planeta"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/input_vida_planeta" />
+
+    <CheckBox
+        android:id="@+id/input_vida_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:text="Tiene Vida"
+        app:layout_constraintBottom_toTopOf="@+id/btn_guardar_planeta"
+        app:layout_constraintEnd_toEndOf="@+id/btn_guardar_planeta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_guardar_planeta" />
+
+    <Button
+        android:id="@+id/btn_guardar_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.723" />
+
+    <EditText
+        android:id="@+id/input_descripcion_planeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Descripción"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/input_posicion_planeta"
+        app:layout_constraintEnd_toEndOf="@+id/input_posicion_planeta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_posicion_planeta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

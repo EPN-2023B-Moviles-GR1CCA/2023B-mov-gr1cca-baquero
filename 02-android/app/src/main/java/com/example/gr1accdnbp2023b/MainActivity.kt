@@ -29,10 +29,11 @@ class MainActivity : AppCompatActivity() {
         val botonListView = findViewById<Button>(R.id.btn_ir_list_view)
 
         botonListView.setOnClickListener {
-            irActividad(BListView:: class.java)
+            irActividad(BListView::class.java)
         }
         val botonIntentImplicito = findViewById<Button>(
-            R.id.btn_ir_intent_implicito)
+            R.id.btn_ir_intent_implicito
+        )
         botonIntentImplicito
             .setOnClickListener {
                 val intentConRespuesta = Intent(
@@ -43,21 +44,28 @@ class MainActivity : AppCompatActivity() {
             }
 
         val botonIntentExplicito = findViewById<Button>(
-            R.id.btn_ir_intent_explicito)
+            R.id.btn_ir_intent_explicito
+        )
         botonIntentExplicito
             .setOnClickListener {
                 abrirActividadConParametros(
                     CIntentExplicitoParametros::class.java
                 )
             }
+        val botonSQLite = findViewById<Button>(R.id.btn_sqlite)
+
+        botonSQLite
+            .setOnClickListener {
+                irActividad(ECrudEntrenador::class.java)
+            }
+
     }
 
     val callbackContenidoIntentExplicito =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-        ) {
-            result ->
-            if (result.resultCode == Activity.RESULT_OK){
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
                 if (result.data != null) {
                     // Lógica Negocio
                     val data = result.data
@@ -81,15 +89,15 @@ class MainActivity : AppCompatActivity() {
     val callbackIntentImplicitoTelefono =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-        ) {
-            result ->
+        ) { result ->
 
-            if(result.resultCode === Activity.RESULT_OK) {
+            if (result.resultCode === Activity.RESULT_OK) {
                 if (result.data != null) {
                     if (result.data!!.data != null) {
                         val uri: Uri = result.data!!.data!!
                         val cursor = contentResolver.query(
-                            uri, null, null, null, null, null)
+                            uri, null, null, null, null, null
+                        )
                         cursor?.moveToFirst()
                         val indiceTelefonos = cursor?.getColumnIndex(
                             ContactsContract.CommonDataKinds.Phone.NUMBER
@@ -104,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
     fun abrirActividadConParametros(
         clase: Class<*>
-    ){
+    ) {
         val intentExplicito = Intent(this, clase)
         // Enviar parametros (solamente variables primitivas)
         intentExplicito.putExtra("nombre", "Adrián")
