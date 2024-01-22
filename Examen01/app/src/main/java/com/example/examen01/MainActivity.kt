@@ -52,14 +52,16 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
+
             R.id.mi_eliminar -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
-                //abrirDialogo()
+                abrirDialogo(posicionItemSeleccionado)
                 return true
             }
+
             else -> super.onContextItemSelected(item)
         }
     }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         val botonNuevoSistemaSolar = findViewById<Button>(R.id.btn_nuevo_sistema_solar)
 
         botonNuevoSistemaSolar.setOnClickListener {
-            irActividad(CrudSistemaSolar:: class.java)
+            irActividad(CrudSistemaSolar::class.java)
         }
     }
 
@@ -130,10 +132,8 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
 
-        var idSistemaSolarAEliminar = arreglo[id].id
-        //CrudArtista().eliminarAlbumesDelArtista(idArtistaAEliminar)
-        //arregloArtistas.removeAt(
-        //    id
-        //)
+        arreglo.removeAt(
+            id
+        )
     }
 }

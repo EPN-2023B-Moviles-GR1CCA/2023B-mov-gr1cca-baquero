@@ -12,9 +12,12 @@ import com.google.android.material.snackbar.Snackbar
 class CrudPlaneta : AppCompatActivity() {
 
     var arregloPlanetas = MemoriaVirtual.arregloPlanetas
+    //var idPlaneta = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crud_planeta)
+
+        //idPlaneta = intent.getStringExtra("id").toString()
 
         val botonGuardarPlaneta = findViewById<Button>(R.id.btn_guardar_planeta)
         botonGuardarPlaneta

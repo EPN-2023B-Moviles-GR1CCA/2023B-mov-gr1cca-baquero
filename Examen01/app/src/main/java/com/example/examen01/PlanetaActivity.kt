@@ -44,8 +44,7 @@ class PlanetaActivity : AppCompatActivity() {
                 return true
             }
             R.id.mi_eliminar -> {
-                mostrarSnackbar("${posicionItemSeleccionado}")
-                //abrirDialogo()
+                abrirDialogo(posicionItemSeleccionado)
                 return true
             }
             else -> super.onContextItemSelected(item)
@@ -97,7 +96,7 @@ class PlanetaActivity : AppCompatActivity() {
             "Aceptar",
             DialogInterface.OnClickListener { dialog, which ->
                 eliminarPlaneta(id)
-                mostrarSnackbar("Sistema Solar eliminado")
+                mostrarSnackbar("Planeta eliminado")
             }
         )
 
@@ -120,11 +119,9 @@ class PlanetaActivity : AppCompatActivity() {
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
 
-        var idSistemaSolarAEliminar = arreglo[id].id
-        //CrudArtista().eliminarAlbumesDelArtista(idArtistaAEliminar)
-        //arregloArtistas.removeAt(
-        //    id
-        //)
+        arreglo.removeAt(
+            id
+        )
     }
 
 }
