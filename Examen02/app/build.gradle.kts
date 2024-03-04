@@ -1,14 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.deber03"
-    compileSdk = 33
+    namespace = "com.example.examen02"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.deber03"
+        applicationId = "com.example.examen02"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -33,27 +34,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-        viewBinding = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
 }
 
 dependencies {
 
+    //implementation(platform("com.google.firebase:firebase-bom:30.1.0"))
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-firestore:24.10.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
